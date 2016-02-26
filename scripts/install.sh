@@ -64,3 +64,4 @@ done
 
 chown -R nginx:nginx $MAGENTO_PATH
 chmod -R 777 $MAGENTO_PATH/var $MAGENTO_PATH/pub/static
+bash
