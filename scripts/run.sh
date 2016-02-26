@@ -4,3 +4,4 @@ set -e
 service php-fpm start
 service nginx start
 service mysqld start
+bash
