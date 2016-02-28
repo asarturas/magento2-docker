@@ -12,10 +12,12 @@ Follow [Quickstart with Magento 2 guide][quickstart_with_magento2].
 2. Once in container - import your database.
 3. If you need to modify it - you can create your own image setting this one as a source.
    Example `Dockerfile` in this case:
+   
    ```
      FROM asarturas/magento2-docker
      RUN echo "further customisation"
    ```
+   
    If a change is generic enough - consider making a pull request or opening an issue ticket here, cheers.
 
 
