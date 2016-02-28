@@ -1,62 +1,25 @@
-# Docker container for Magento 2 (CentOS)
+# Docker developer's container for Magento 2 (CentOS)
 
-## How to use Docker container
+This is a fork of [original magento2-docker][fork_origin], but is aimed at hosting developer's environment, rather than just testing functionality.
 
-- Execute command:
+## How to set it up for new Magento2 project (developer's environment)?
 
-```
-$ docker pull magento/centos:v1
-```
+Follow [Quickstart with Magento 2 guide][quickstart_with_magento2].
 
-- Then add virtual host to *hosts* file
+## How to use it to host existing Magento 2 installation?
 
-```
-127.0.0.1 magento2.docker.loc
-```
+1. Run the container from your project's root (see Step 1 in a Quickstart guide above).
+2. Once in container - import your database.
+3. If you need to modify it - you can create your own image setting this one as a source.
+   Example `Dockerfile` in this case:
+   ```
+     FROM asarturas/magento2-docker
+     RUN echo "further customisation"
+   ```
+   If a change is generic enough - consider making a pull request or opening an issue ticket here, cheers.
 
-- Launch container
 
-```
-$ docker run --cap-add=ALL -p 127.0.0.1:80:80 -e VIRTUAL_HOST=magento2.docker.loc -i -t magento/centos:v1 /bin/bash
-```
+*This container is for developer's use only - not for production or pipeline environment.*
 
-- After container is launched, start services
-
-```
-$ service php-fpm start && service nginx start && service mysqld start && service varnish start
-```
-
-## How to build image
-
-- Clone repository
-
-- Clone Magento2 from repository [magento/magento2](https://github.com/magento/magento2)
-and place it in a folder *\<path-to-repository-files\>/magento2*
-
-- Run composer
-
-- In console execute command for building Docker image
-
-```
-$ docker build -t <image-name>:<version> <path-to-repository-files>
-```
-
-- After build is complete, add virtual host to *hosts* file
-
-```
-127.0.0.1 magento2.docker.loc
-```
-
-- Launch container
-
-```
-$ docker run --cap-add=ALL -p 127.0.0.1:80:80 -e VIRTUAL_HOST=magento2.docker.loc -i -t <image-name>:<version> /bin/bash
-```
-
-- After container is launched, start services
-
-```
-$ service php-fpm start && service nginx start && service mysqld start && service varnish start
-```
-
-*This container is for testing use - not for production environment.*
+[fork_origin]: https://github.com/magento/magento2-docker
+[quickstart_with_magento2]: http://arturas.smorgun.com/2016/02/28/quick-start-with-magento2.html
