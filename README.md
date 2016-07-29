@@ -24,4 +24,4 @@ Follow [Quickstart with Magento 2 guide][quickstart_with_magento2].
 *This container is for developer's use only - not for production or pipeline environment.*
 
 [fork_origin]: https://github.com/magento/magento2-docker
-[quickstart_with_magento2]: http://arturas.smorgun.com/2016/02/28/quick-start-with-magento2.html
+[quickstart_with_magento2]: http://arturas.smorgun.com/2016/02/28/quickstart-with-magento2.html
